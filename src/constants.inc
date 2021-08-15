@@ -1,3 +1,5 @@
+ZP_PTR			= $30
+
 VERA_LOW		= $9F20
 VERA_MID		= $9F21
 VERA_HIG		= $9F22
