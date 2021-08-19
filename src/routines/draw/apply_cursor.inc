@@ -8,6 +8,8 @@ apply_cursor:
 
 	select_bank $01
 
+	;TODO: Make sure to write a new version for different sprite sizes
+
 	lda MENU
 	cmp #$00
 	bne exit
