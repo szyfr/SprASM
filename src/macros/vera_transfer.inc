@@ -1,13 +1,7 @@
 ;---------------;
 ; @Szyfr		;
-; @2021/8/8		;
+; @2021/8/19	;
 ;---------------;
-
-layer0_map	= $00000
-;layer1_map	= $01000
-;vram_tiles	= $02000
-layer1_map	= $00200
-vram_tiles	= $00800
 
 
 .macro RAM2VRAM ram_addr, vram_addr, num_bytes
@@ -44,6 +38,7 @@ vram_tiles	= $00800
 	.endscope
 .endmacro
 
+
 .macro RAM2MAP ram_addr, vram_addr, num_bytes
 	.scope
 		stz VERA_CTRL
@@ -78,31 +73,3 @@ vram_tiles	= $00800
 		bne vram_loop
 	.endscope
 .endmacro
-
-
-init:
-	stz DC_VIDEO
-
-	lda #32
-	sta DC_HSCALE
-	sta DC_VSCALE
-
-	lda #$02
-	sta L0_CONFIG
-	lda #(layer0_map >> 9)
-	sta L0_MAPBASE
-	lda #(vram_tiles >> 9)
-	sta L0_TILEBASE
-
-	RAM2MAP map, layer0_map, map_size
-	RAM2VRAM tiles, vram_tiles, tiles_size
-
-;	lda #$31
-;	lda #$21
-	lda #$11
-	sta DC_VIDEO
-
-	rts
-
-
-.include "tiles/test.inc"

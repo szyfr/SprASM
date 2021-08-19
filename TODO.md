@@ -7,9 +7,8 @@
 - Ability to change sprite size.
 	- 8x8
 	- 16x16
-	- 32x32
 - "Tiling" mode, where the edges of the editable sprite are duplicated on the other side.
-- Side-by-side mode, where the edges of other sprites are
+- "Meta" mode, where the edges of other sprites are duplicated on the other side.
 - Color data is edited and store into RAM during update and moved into VRAM during draw.
 - Can move cursor.
 - Can paint sprite.

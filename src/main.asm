@@ -1,3 +1,9 @@
+;---------------;
+; @Szyfr		;
+; @2021/8/19	;
+;---------------;
+
+
 .org $080D
 .segment "STARTUP"
 .segment "INIT"
@@ -6,6 +12,7 @@
 
 
 .include "constants.inc"
+.include "macros.inc"
 
 
 main:
@@ -14,14 +21,8 @@ main:
 :	jsr update
 	jsr draw
 	jmp :-
-	
-leave:
-	rts
 
-	
 
-.include "init.inc"
-.include "update.inc"
-.include "draw.inc"
-
-;.include "sprites/player_heart.inc"
+.include "routines/init.inc"
+.include "routines/update.inc"
+.include "routines/draw.inc"
